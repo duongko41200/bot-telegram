@@ -19,7 +19,7 @@ const signUpHandle = (bot) => {
 
 
 	// DIỀN THÔNG TIN ĐĂNG KÝ
-	bot.command('name', (ctx) => {kjtr5   
+	bot.command('name', (ctx) => { 
 		let input = ctx.message.text;
 		let inputArr = input.split(' ');
 		let message = '';
