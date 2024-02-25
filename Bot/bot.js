@@ -32,7 +32,7 @@ const tutorialMessage = `
 // 	next();
 // });
 
-
+const setupBot = () => {
 	const TOKEN = '6893164702:AAEPdDlqfEy20Np_goXO7R-9cqAgfelPys0';
 	const bot = new Telegraf(TOKEN);
 	bot.start((ctx) => {
@@ -86,5 +86,6 @@ const tutorialMessage = `
 
 	// bot.launch();
 
-
-
+	return bot;
+};
+module.exports = { setupBot };
