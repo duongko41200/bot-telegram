@@ -10,9 +10,10 @@ const web_link = 'https://bot-app-english.vercel.app/';
 const signUpHandle = (bot) => {
 	bot.command('signup', (ctx) => {
 		// ctx.telegram.sendMessage(ctx.chat.id, Tutorial.signUp);
+		const userId = ctx.from.id;
 		ctx.reply(`${Tutorial.signUp}`, {
 			reply_markup: {
-				keyboard: [[{ text: 'Đăng ký', web_app: { url: `${web_link}/signup` } }]],
+				keyboard: [[{ text: 'Đăng ký', web_app: { url: `${web_link}/signup?id=${userId}` } }]],
 			},
 		})
 	});
