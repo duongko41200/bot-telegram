@@ -1,4 +1,3 @@
-
 const axios = require('axios');
 const { Tutorial } = require('../CONTANT/tutorial');
 const registrationInfo = {
@@ -13,14 +12,25 @@ const signUpHandle = (bot) => {
 		const userId = ctx.from.id;
 		ctx.reply(`${Tutorial.signUp}`, {
 			reply_markup: {
-				keyboard: [[{ text: 'Đăng ký', web_app: { url: `${web_link}/signup?id=${userId}` } }]],
+				keyboard: [
+					[
+						{
+							text: 'Đăng ký',
+							web_app: { url: `${web_link}/signup?id=${userId}` },
+						},
+
+						{
+							text: 'Nạp thêm câu từ ',
+							web_app: { url: `${web_link}/addElement` },
+						},
+					],
+				],
 			},
-		})
+		});
 	});
 
-
 	// DIỀN THÔNG TIN ĐĂNG KÝ
-	bot.command('name', (ctx) => { 
+	bot.command('name', (ctx) => {
 		let input = ctx.message.text;
 		let inputArr = input.split(' ');
 		let message = '';
@@ -94,7 +104,7 @@ const signUpHandle = (bot) => {
 		password: ${registrationInfo.password}
 	
 	`);
-	ctx.reply('Quá trình đăng ký đăng diễn ra ...')
+		ctx.reply('Quá trình đăng ký đăng diễn ra ...');
 
 		const headers = {
 			'x-api-key':
@@ -130,8 +140,7 @@ const signUpHandle = (bot) => {
 					return error;
 				}
 			});
-		
-	
+
 		if (signUp.status == '200') {
 			ctx.reply(`Bạn đã đăng ký tài khoản thành công!
 					Đây là thông tin tài khoản của bạn:
@@ -147,11 +156,10 @@ const signUpHandle = (bot) => {
 					
 
 			
-					`)
+					`);
 		} else {
-			ctx.reply(`${signUp.message}`)
+			ctx.reply(`${signUp.message}`);
 		}
-
 	});
 
 	bot.command('check_Signup', (ctx) => {
@@ -165,7 +173,6 @@ const signUpHandle = (bot) => {
 					password: ${registrationInfo.password}
 				
 				`);
-		
 	});
 };
 
