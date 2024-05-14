@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { setupBot } = require('./Bot/bot');
-
+const schedule = require('node-schedule');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,6 +21,22 @@ app.post('/webhook', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
     const webhookUrl = 'https://bot-telegram-swart-seven.vercel.app';
+
+    console.log("skdfjksd",bot.cont)
     bot.telegram.setWebhook(`${webhookUrl}/webhook`);
     console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
+    schedule.scheduleJob(
+		{ hour: parseInt(10), minute: parseInt(59) },
+		() => {
+			// Send the notification to the user
+			bot.telegram.sendMessage(5968988559, `⏰ Reminder: learn english`);
+        }
+    )
+    schedule.scheduleJob(
+		{ hour: parseInt(9), minute: parseInt(0) },
+		() => {
+			// Send the notification to the user
+			bot.telegram.sendMessage(5968988559, `⏰ Reminder: drinking water`);
+        }
+    )
 });

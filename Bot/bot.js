@@ -148,4 +148,5 @@ const setupBot = () => {
 
 	return bot;
 };
+setupBot()
 module.exports = { setupBot };
