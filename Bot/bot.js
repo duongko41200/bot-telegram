@@ -4,7 +4,7 @@ const axios = require('axios');
 const {
 	signUpHandle,
 } = require('./controllerBot/access.controllerBot');
-const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
+const schedule = require('node-schedule');
 // const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
 // const { LocalStorage } = require('node-localstorage');
 
@@ -35,6 +35,24 @@ const userNotifications = {};
 // 	console.log(ctx);
 // 	next();
 // });
+
+function scheduleNotification(
+	userId,
+	time,
+	message
+) {
+	const [hours, minutes] = time.split(':');
+
+	// Schedule the job
+
+	userNotifications[userId].job = schedule.scheduleJob(
+		{ hour: parseInt(hours), minute: parseInt(minutes) },
+		() => {
+			// Send the notification to the user
+			bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+		}
+	);
+}
 
 const setupBot = () => {
 	const TOKEN = '6893164702:AAEPdDlqfEy20Np_goXO7R-9cqAgfelPys0';
@@ -96,7 +114,7 @@ const setupBot = () => {
 		  ctx.reply(`✅ Notification set for ${time} - ${notificationMessage}`);
 	  
 		  // Schedule the notification
-		  scheduleNotification(userId, time, notificationMessage,userNotifications);
+		  scheduleNotification(userId, time, notificationMessage);
 		} else {
 		  ctx.reply(
 			  "⚠️ Please provide both time and notification message in the correct format. " +
