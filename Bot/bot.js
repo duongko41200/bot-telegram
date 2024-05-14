@@ -29,30 +29,14 @@ const tutorialMessage = `
 	/signup - đăng ký sử dụng app
 `;
 
-const userNotifications = {};
+
 
 // bot.use((ctx, next) => {
 // 	console.log(ctx);
 // 	next();
 // });
 
-function scheduleNotification(
-	userId,
-	time,
-	message
-) {
-	const [hours, minutes] = time.split(':');
 
-	// Schedule the job
-
-	userNotifications[userId].job = schedule.scheduleJob(
-		{ hour: parseInt(hours), minute: parseInt(minutes) },
-		() => {
-			// Send the notification to the user
-			bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
-		}
-	);
-}
 
 const setupBot = () => {
 	const TOKEN = '6893164702:AAEPdDlqfEy20Np_goXO7R-9cqAgfelPys0';
@@ -87,6 +71,7 @@ const setupBot = () => {
 		ctx.telegram.sendMessage(ctx.chat.id, 'duong dep trai');
 		console.log('chat id:', ctx.chat.id, ctx.from);
 	});
+	const userNotifications = {};
 
 	bot.command("set", (ctx) => {
 		const message = ctx.message.text;
@@ -122,6 +107,26 @@ const setupBot = () => {
 		  );
 		}
 	});
+
+	function scheduleNotification(
+		userId,
+		time,
+		message
+	) {
+		const [hours, minutes] = time.split(':');
+	
+		// Schedule the job
+
+		console.log("data vào đây")
+	
+		userNotifications[userId].job = schedule.scheduleJob(
+			{ hour: parseInt(hours), minute: parseInt(minutes) },
+			() => {
+				// Send the notification to the user
+				bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+			}
+		);
+	}
 
 
 
