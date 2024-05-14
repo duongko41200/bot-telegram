@@ -5,6 +5,7 @@ const {
 	signUpHandle,
 } = require('./controllerBot/access.controllerBot');
 const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
+// const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
 // const { LocalStorage } = require('node-localstorage');
 
 // Tạo một kho lưu trữ local với đường dẫn tạm thời
@@ -103,6 +104,8 @@ const setupBot = () => {
 		  );
 		}
 	});
+
+
 
 	bot.command('echo', (ctx) => {
 		let input = ctx.message.text;
