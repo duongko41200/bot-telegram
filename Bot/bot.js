@@ -4,6 +4,7 @@ const axios = require('axios');
 const {
 	signUpHandle,
 } = require('./controllerBot/access.controllerBot');
+const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
 // const { LocalStorage } = require('node-localstorage');
 
 // Tạo một kho lưu trữ local với đường dẫn tạm thời
@@ -26,6 +27,8 @@ const tutorialMessage = `
 	/start - Hiên thị các danh sách sử dụng bot
 	/signup - đăng ký sử dụng app
 `;
+
+const userNotifications = {};
 
 // bot.use((ctx, next) => {
 // 	console.log(ctx);
@@ -59,15 +62,46 @@ const setupBot = () => {
 		ctx.reply(`hi ${ctx.from.first_name}! how are you today?`);
 	});
 
-	// bot.on('text', (ctx, next) => {
-	// 	console.log('ctx tẽt:', ctx.update.message.text);
-	// 	ctx.reply('tôi đã nhận được feedback của bạn');
-	// 	next(ctx);
-	// });
+
 
 	bot.command('test', (ctx) => {
 		ctx.telegram.sendMessage(ctx.chat.id, 'duong dep trai');
 		console.log('chat id:', ctx.chat.id, ctx.from);
+	});
+
+	bot.command("set", (ctx) => {
+		const message = ctx.message.text;
+	  
+		// Extract the time and message using a regular expression
+		const match = message.match(/^\/set\s+([\d:]+)\s+(.+)/);
+	  
+		// Check if the time and message are provided
+		if (match) {
+		  const time = match[1];
+		  const notificationMessage = match[2];
+	  
+		  // Save the notification for the user
+		  const userId = ctx.message.from.id;
+	  
+		  // Check if the user already has notifications
+		  if (!userNotifications[userId]) {
+			userNotifications[userId] = [];
+		  }
+	  
+		  // Add the new notification to the array
+			userNotifications[userId].push({ time, message: notificationMessage });
+			console.log("userNotifications: ksjdk",userNotifications)
+	  
+		  ctx.reply(`✅ Notification set for ${time} - ${notificationMessage}`);
+	  
+		  // Schedule the notification
+		  scheduleNotification(userId, time, notificationMessage);
+		} else {
+		  ctx.reply(
+			  "⚠️ Please provide both time and notification message in the correct format. " +
+			  "\n\nExample format: `/set 12:30 Cook some dinner`"
+		  );
+		}
 	});
 
 	bot.command('echo', (ctx) => {
