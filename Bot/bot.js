@@ -96,7 +96,7 @@ const setupBot = () => {
 		  ctx.reply(`✅ Notification set for ${time} - ${notificationMessage}`);
 	  
 		  // Schedule the notification
-		  scheduleNotification(userId, time, notificationMessage);
+		  scheduleNotification(userId, time, notificationMessage,userNotifications);
 		} else {
 		  ctx.reply(
 			  "⚠️ Please provide both time and notification message in the correct format. " +
