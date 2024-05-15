@@ -25,7 +25,6 @@ app.post('/api/schedule', (req, res) => {
 
     const {chatId,message} = req.body
 
-    console.log("body kalf :", body)
 
     bot.telegram.sendMessage(chatId, `⏰ R${message}`);
     
