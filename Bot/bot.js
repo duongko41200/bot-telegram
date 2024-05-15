@@ -44,6 +44,7 @@ const setupBot = () => {
 	const bot = new Telegraf(TOKEN);
 	bot.start((ctx) => {
 		// Gửi tin nhắn và thiết lập nút web_app
+		console.log("ksdjfksdjfkjsd")
 		ctx.reply(`${tutorialMessage}`, {
 			reply_markup: {
 				keyboard: [[{ text: 'web app', web_app: { url: web_link } }]],

@@ -2,17 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { setupBot } = require('./Bot/bot');
 const schedule = require('node-schedule');
-const { Telegraf } = require('telegraf');
-
-const TOKEN = '6893164702:AAEPdDlqfEy20Np_goXO7R-9cqAgfelPys0';
-const bot = new Telegraf(TOKEN);
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 // Thiết lập Bot
-setupBot();
+const bot = setupBot();
 
 // Middleware để xử lý JSON và xử lý Webhook từ Telegram
 app.use(bodyParser.json());
@@ -30,7 +26,7 @@ app.post('/api/schedule', (req, res) => {
     const {chatId,message} = req.body
 
 
-    bot.telegram.sendMessage(chatId, `⏰ R${message}`);
+    bot.telegram.sendMessage(5968988559, `⏰ ${message}`);
     
 
    return res.status(200).json({
