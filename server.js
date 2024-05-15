@@ -26,7 +26,7 @@ app.listen(port, () => {
     bot.telegram.setWebhook(`${webhookUrl}/webhook`);
     console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
     schedule.scheduleJob(
-		{ hour: parseInt(10), minute: parseInt(59) },
+		{ hour: parseInt(20), minute: parseInt(20) },
 		() => {
 			// Send the notification to the user
 			bot.telegram.sendMessage(5968988559, `⏰ Reminder: learn english`);
