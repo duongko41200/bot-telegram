@@ -23,10 +23,11 @@ app.post('/webhook', (req, res) => {
 
 app.post('/api/schedule', (req, res) => {
 
-    const {chatId,message} = req.body
+    const { chatId, message } = req.body
+    console.log({ chatId, message})
 
 
-    bot.telegram.sendMessage(5968988559, `⏰ ${message}`);
+    bot.telegram.sendMessage(5968988559, `⏰ đến giờ học tiếng anh rồi:)))`);
     
 
    return res.status(200).json({
