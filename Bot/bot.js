@@ -44,7 +44,6 @@ const setupBot = () => {
 	const bot = new Telegraf(TOKEN);
 	bot.start((ctx) => {
 		// Gửi tin nhắn và thiết lập nút web_app
-		console.log("ksdjfksdjfkjsd")
 		ctx.reply(`${tutorialMessage}`, {
 			reply_markup: {
 				keyboard: [[{ text: 'web app', web_app: { url: web_link } }]],
@@ -73,6 +72,11 @@ const setupBot = () => {
 		ctx.telegram.sendMessage(ctx.chat.id, 'duong dep trai');
 		console.log('chat id:', ctx.chat.id, ctx.from);
 	});
+
+
+
+
+
 	const userNotifications = {};
 
 	bot.command("set", (ctx) => {
@@ -96,7 +100,7 @@ const setupBot = () => {
 	  
 		  // Add the new notification to the array
 			userNotifications[userId].push({ time, message: notificationMessage });
-			console.log("userNotifications: ksjdk",userNotifications)
+			console.log("userNotifications: ",userNotifications)
 	  
 		  ctx.reply(`✅ Notification set for ${time} - ${notificationMessage}`);
 	  

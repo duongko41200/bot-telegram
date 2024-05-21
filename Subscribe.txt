@@ -1,1 +1,1 @@
-https://www.youtube.com/channel/UC-c2hhJmYdZFvMIe-O-SjNg
+A đăng ký thì sẽ gửi api  xuống bót ( 1: đang ký theo bot nhung thì sẽ lấy đươc id telegram , 2 thì tìm cách lấy mà không thông qua bot) ==>> đăng ký thành công thì sẽ gọi vào file schedule
