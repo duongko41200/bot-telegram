@@ -4,7 +4,7 @@ const { setupBot } = require('./Bot/bot');
 const schedule = require('node-schedule');
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8888;
 
 app.use(bodyParser.json());
 // Thiết lập Bot
