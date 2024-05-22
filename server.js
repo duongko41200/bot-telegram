@@ -39,10 +39,10 @@ app.post('/api/schedule', (req, res) => {
 // Lắng nghe trên cổng đã chọn
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
-	const webhookUrl = 'https://bot-telegram-swart-seven.vercel.app';
+	// const webhookUrl = 'https://bot-telegram-swart-seven.vercel.app';
 
-	bot.telegram.setWebhook(`${webhookUrl}/webhook`);
-    console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
+	// bot.telegram.setWebhook(`${webhookUrl}/webhook`);
+    // console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
 	bot.launch();
 	
 	  schedule.scheduleJob(
