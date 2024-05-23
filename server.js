@@ -33,7 +33,7 @@ app.post('/api/schedule', (req, res) => {
 		message: 'duong ok',
 	});
 });
-app.get('', (req, res) => {
+app.get('/api', (req, res) => {
 	const { chatId, message } = req.body;
 	console.log({ chatId, message });
 
