@@ -59,7 +59,7 @@ app.listen(port, () => {
 	bot.launch();
 	
 	  schedule.scheduleJob(
-		{ hour: parseInt(15), minute: parseInt(5) },
+		{ hour: parseInt(7), minute: parseInt(5) },
 		() => {
 			// Send the notification to the user
 			bot.telegram.sendMessage(5968988559, `⏰ Reminder: learn english`);
