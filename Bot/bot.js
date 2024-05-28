@@ -199,7 +199,7 @@ bot.command("help", (ctx) => {
 						const test = bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
 
 						if(!test){
-							bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}
+							bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
 						}
 						console.log("value send mess",test)
 					}catch(error){
