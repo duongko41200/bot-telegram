@@ -196,9 +196,18 @@ bot.command("help", (ctx) => {
 				() => {
 					// Send the notification to the user
 					try{
+						const test = bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+
+						if(!test){
+							bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}
+						}
+						console.log("value send mess",test)
+					}catch(error){
+						
 						bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
-					}catch{
-						bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+						console.log("lỗi sendMess", error)
+
+	
 					}
 					
 				}
