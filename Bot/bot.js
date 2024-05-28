@@ -195,7 +195,12 @@ bot.command("help", (ctx) => {
 				{ hour: parseInt(hours), minute: parseInt(minutes) },
 				() => {
 					// Send the notification to the user
-					bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+					try{
+						bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+					}catch{
+						bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+					}
+					
 				}
 			);
 		} catch (error) {
