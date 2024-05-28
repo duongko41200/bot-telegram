@@ -193,18 +193,19 @@ bot.command("help", (ctx) => {
 
 			userNotifications[userId].job = schedule.scheduleJob(
 				{ hour: parseInt(hours), minute: parseInt(minutes) },
-				() => {
+				async() => {
 					// Send the notification to the user
 					try{
-						const test = bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+						const test = await bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
 
 						if(!test){
-							bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+							console.log('khong gui dc mess')
+							await bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
 						}
 						console.log("value send mess",test)
 					}catch(error){
 						
-						bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
+						await bot.telegram.sendMessage(userId, `⏰ Reminder: ${message}`);
 						console.log("lỗi sendMess", error)
 
 	
@@ -231,7 +232,7 @@ bot.command("help", (ctx) => {
 		ctx.reply(message);
 	});
 
-	bot.launch();
+	// bot.launch();
 
 	return bot;
 };
