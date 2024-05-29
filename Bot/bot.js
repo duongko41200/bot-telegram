@@ -195,8 +195,8 @@ const setupBot = () => {
 		bot,
 		userId,
 		message,
-		maxRetries = 5,
-		delay = 1000
+		maxRetries = 10,
+		delay = 3000
 	) {
 		let attempt = 0;
 		let success = false;
