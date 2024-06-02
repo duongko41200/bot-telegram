@@ -277,9 +277,9 @@ const setupBot = () => {
 		ctx.reply(message);
 	});
 
-	// bot.launch();
+	bot.launch();
 
 	return bot;
 };
-setupBot();
+// setupBot();
 module.exports = { setupBot };
