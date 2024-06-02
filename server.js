@@ -56,7 +56,9 @@ app.listen(port, () => {
 
 	// bot.telegram.setWebhook(`${webhookUrl}/webhook`);
     // console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
-	bot.launch();
+	// bot.launch();
+
+setupBot()
 	
 	  schedule.scheduleJob(
 		{ hour: parseInt(7), minute: parseInt(5) },
