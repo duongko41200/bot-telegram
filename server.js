@@ -4,7 +4,7 @@ const { setupBot } = require('./Bot/bot');
 const schedule = require('node-schedule');
 
 const app = express();
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 8001;
 
 app.use(bodyParser.json());
 // Thiết lập Bot
@@ -14,9 +14,9 @@ const bot = setupBot();
 app.use(bodyParser.json());
 
 // Xử lý Webhook từ Telegram
-app.post('/webhook', (req, res) => {
-	bot.handleUpdate(req.body, res);
-});
+// app.post('/webhook', (req, res) => {
+// 	bot.handleUpdate(req.body, res);
+// });
 
 //// api tạm để báo thưc thời gian hoạc từ trang cron.job.org
 
@@ -47,28 +47,27 @@ app.get('/api', (req, res) => {
 	});
 });
 
-
-
 // Lắng nghe trên cổng đã chọn
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 	// const webhookUrl = 'https://bot-telegram-swart-seven.vercel.app';
 
 	// bot.telegram.setWebhook(`${webhookUrl}/webhook`);
-    // console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
-	// bot.launch();
+	// console.log(`Webhook has been set up at: ${webhookUrl}/webhook`);
+	bot.launch();
 
-setupBot()
-	
-	  schedule.scheduleJob(
-		{ hour: parseInt(7), minute: parseInt(5) },
+
+
+	schedule.scheduleJob(
+		{ hour: parseInt(2), minute: parseInt(30) },
 		() => {
 			// Send the notification to the user
-			bot.telegram.sendMessage(5968988559, `⏰ Reminder: learn english`);
-        }
-    )
+			bot.telegram.sendMessage(
+				5968988559,
+				`⏰ Reminder: learn english`
+			);
+		}
+	);
 
 	//schedule gọi
-
-    
 });

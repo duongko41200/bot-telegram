@@ -33,6 +33,7 @@ const tutorialMessage = `
 // 	console.log(ctx);
 // 	next();
 // });
+const userNotifications = {};
 
 const setupBot = () => {
 	const TOKEN = '6893164702:AAEPdDlqfEy20Np_goXO7R-9cqAgfelPys0';
@@ -66,19 +67,20 @@ const setupBot = () => {
 		console.log('chat id:', ctx.chat.id, ctx.from);
 	});
 
-	const userNotifications = {};
-
 	bot.command('set', (ctx) => {
 		const message = ctx.message.text;
 
 		// Extract the time and message using a regular expression
 		const match = message.match(/^\/set\s+([\d:]+)\s+(.+)/);
 
+		console.log('match : ', match);
+
 		// Check if the time and message are provided
 		try {
 			if (match) {
 				const time = match[1];
 				const notificationMessage = match[2];
+				const [hours, minutes] = time.split(':');
 
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
@@ -92,6 +94,24 @@ const setupBot = () => {
 				userNotifications[userId].push({
 					time,
 					message: notificationMessage,
+					job: schedule.scheduleJob(
+						{ hour: parseInt(hours), minute: parseInt(minutes) },
+						async () => {
+							try {
+								const response = await sendMessageWithRetry(
+									bot,
+									userId,
+									notificationMessage,
+									'set'
+								);
+								if (!response) {
+									console.log('Message could not be sent.');
+								}
+							} catch (error) {
+								console.error('An unexpected error occurred:', error);
+							}
+						}
+					),
 				});
 				console.log('userNotifications: ', userNotifications);
 
@@ -100,11 +120,76 @@ const setupBot = () => {
 				);
 
 				// Schedule the notification
-				scheduleNotification(userId, time, notificationMessage);
+				// scheduleNotification(userId, time, notificationMessage);z`
 			} else {
 				ctx.reply(
 					'⚠️ Please provide both time and notification message in the correct format. ' +
 						'\n\nExample format: `/set 12:30 Cook some dinner`'
+				);
+			}
+		} catch (error) {
+			console.log({ error });
+		}
+	});
+
+	bot.command('setStory', (ctx) => {
+		const message = ctx.message.text;
+
+		// Extract the time and message using a regular expression
+		const match = message.match(/^\/setStory\s+([\d:]+)\s+(.+)/);
+
+		console.log('match : ', match);
+
+		// Check if the time and message are provided
+		try {
+			if (match) {
+				const time = match[1];
+				const notificationMessage = match[2];
+				const [hours, minutes] = time.split(':');
+
+				// Save the notification for the user
+				const userId = ctx.message.from.id;
+
+				// Check if the user already has notifications
+				if (!userNotifications[userId]) {
+					userNotifications[userId] = [];
+				}
+
+				// Add the new notification to the array
+				userNotifications[userId].push({
+					time,
+					message: notificationMessage,
+					job: schedule.scheduleJob(
+						{ hour: parseInt(hours), minute: parseInt(minutes) },
+						async () => {
+							try {
+								const response = await sendMessageWithRetry(
+									bot,
+									userId,
+									notificationMessage,
+									'setStory'
+								);
+								if (!response) {
+									console.log('Message could not be sent.');
+								}
+							} catch (error) {
+								console.error('An unexpected error occurred:', error);
+							}
+						}
+					),
+				});
+				console.log('userNotifications: ', userNotifications);
+
+				ctx.reply(
+					`✅ Notification setStory for ${time} - ${notificationMessage}`
+				);
+
+				// Schedule the notification
+				// scheduleNotification(userId, time, notificationMessage);z`
+			} else {
+				ctx.reply(
+					'⚠️ Please provide both time and notification message in the correct format. ' +
+						'\n\nExample format: `/setStory 12:30 Cook some dinner`'
 				);
 			}
 		} catch (error) {
@@ -162,18 +247,37 @@ const setupBot = () => {
 	// Command to show help and disable other commands
 	bot.command('help', (ctx) => {
 		ctx.reply(
-			'🤖 Notification Bot\n\n📅 To set up a notification: /setnotification HH:MM Your notification message' +
-				'\n\n📆 To view all notifications: /viewnotifications\n\n🗑 To delete a notification: ' +
+			'🤖 Notification Bot\n\n📅 To set up a notification: /set HH:MM Your notification message' +
+				'\n\n📆 To set reminder for short story: /setStory HH:MM Your notification message\n\n🗑 To delete a notification: ' +
+				'\n\n📆 To view all notifications: /viewReminder\n\n🗑 To delete a notification: ' +
 				'/deleteReminder <index>\n\n❓ For help: /help'
 		);
 	});
 
-	// Command to show help and disable other commands
-	bot.command('help', (ctx) => {
+	bot.command('story', async (ctx) => {
+		const data = await axios
+			.get(`https://api.quotable.io/random?minLength=200&maxLength=400`)
+			.then((res) => {
+				return res.data;
+			})
+			.catch((error) => {
+				console.log(`ApiService: ${error}`);
+				if (error.response) {
+					// Request made and server responded
+					return error.response.data;
+				} else if (error.request) {
+					// The request was made but no response was received
+					console.log(error.request);
+					return error;
+				} else {
+					// Something happened in setting up the request that triggered an Error
+					console.log('Error', error);
+					return error;
+				}
+			});
+
 		ctx.reply(
-			'🤖 Notification Bot\n\n📅 To set up a notification: /setnotification HH:MM Your notification message' +
-				'\n\n📆 To view all notifications: /viewnotifications\n\n🗑 To delete a notification: ' +
-				'/deleteReminder <index>\n\n❓ For help: /help'
+			`🤖 Notification: học tiếng anh qua đoạn văn\n\n ${data.content} \n\n 🤵Tác giả: " ${data.author}"\n\n`
 		);
 	});
 
@@ -185,17 +289,24 @@ const setupBot = () => {
 			userNotificationsArray.length > index
 		) {
 			// Remove the notification at the specified index
+
+			const job = userNotificationsArray[index].job;
+			if (job) {
+				job.cancel();
+				console.log(`Đã hủy công việc có thời gian `);
+			}
 			userNotificationsArray.splice(index, 1);
-			return true; // Return true if deletion is successful
+			return true;
 		}
-		return false; // Return false if deletion fails (e.g., index out of bounds)
+		return false;
 	}
 
 	async function sendMessageWithRetry(
 		bot,
 		userId,
 		message,
-		maxRetries = 10,
+		typeSet,
+		maxRetries = 11,
 		delay = 3000
 	) {
 		let attempt = 0;
@@ -204,15 +315,53 @@ const setupBot = () => {
 
 		while (attempt < maxRetries && !success) {
 			try {
-				response = await bot.telegram.sendMessage(
-					userId,
-					`⏰ Reminder: ${message}`
-				);
-				if (response) {
-					console.log('Message sent successfully:', response);
-					success = true;
-				} else {
-					console.log('Failed to send message, retrying...');
+				if (typeSet === 'set') {
+					response = await bot.telegram.sendMessage(
+						userId,
+						`⏰ Reminder: ${message}`
+					);
+					if (response) {
+						console.log('Message sent successfully:', response);
+						success = true;
+					} else {
+						console.log('Failed to send message, retrying...');
+					}
+				}
+
+				if (typeSet === 'setStory') {
+					const data = await axios
+						.get(
+							`https://api.quotable.io/random?minLength=150&maxLength=300`
+						)
+						.then((res) => {
+							return res.data;
+						})
+						.catch((error) => {
+							console.log(`ApiService: ${error}`);
+							if (error.response) {
+								// Request made and server responded
+								return error.response.data;
+							} else if (error.request) {
+								// The request was made but no response was received
+								console.log(error.request);
+								return error;
+							} else {
+								// Something happened in setting up the request that triggered an Error
+								console.log('Error', error);
+								return error;
+							}
+						});
+
+					response = await bot.telegram.sendMessage(
+						userId,
+						`⏰ Reminder: ${message} \n\n  🔈 Học tiếng anh qua đoạn văn 💯\n\n ${data.content} \n\n 🤵Tác giả: " ${data.author}"\n\n`
+					);
+					if (response) {
+						console.log('Message sent successfully:', response);
+						success = true;
+					} else {
+						console.log('Failed to send message, retrying...');
+					}
 				}
 			} catch (error) {
 				console.log(`Attempt ${attempt + 1} failed:`, error);
@@ -231,37 +380,37 @@ const setupBot = () => {
 		return response;
 	}
 
-	function scheduleNotification(userId, time, message) {
-		try {
-			const [hours, minutes] = time.split(':');
+	// function scheduleNotification(userId, time, message) {
+	// 	try {
+	// 		const [hours, minutes] = time.split(':');
 
-			// Schedule the job
+	// 		// Schedule the job
 
-			console.log('data vào đây');
+	// 		console.log('data vào đây');
 
-			userNotifications[userId].job = schedule.scheduleJob(
-				{ hour: parseInt(hours), minute: parseInt(minutes) },
-				async () => {
-					// Send the notification to the user
+	// 		userNotifications[userId].job = schedule.scheduleJob(
+	// 			{ hour: parseInt(hours), minute: parseInt(minutes) },
+	// 			async () => {
+	// 				// Send the notification to the user
 
-					try {
-						const response = await sendMessageWithRetry(
-							bot,
-							userId,
-							message
-						);
-						if (!response) {
-							console.log('Message could not be sent.');
-						}
-					} catch (error) {
-						console.error('An unexpected error occurred:', error);
-					}
-				}
-			);
-		} catch (error) {
-			console.log({ error });
-		}
-	}
+	// 				try {
+	// 					const response = await sendMessageWithRetry(
+	// 						bot,
+	// 						userId,
+	// 						message
+	// 					);
+	// 					if (!response) {
+	// 						console.log('Message could not be sent.');
+	// 					}
+	// 				} catch (error) {
+	// 					console.error('An unexpected error occurred:', error);
+	// 				}
+	// 			}
+	// 		);
+	// 	} catch (error) {
+	// 		console.log({ error });
+	// 	}
+	// }
 
 	bot.command('echo', (ctx) => {
 		let input = ctx.message.text;
@@ -277,9 +426,9 @@ const setupBot = () => {
 		ctx.reply(message);
 	});
 
-	bot.launch();
+	// bot.launch();
 
 	return bot;
 };
-// setupBot();
+setupBot();
 module.exports = { setupBot };
