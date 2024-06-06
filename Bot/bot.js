@@ -1,5 +1,6 @@
 const { Telegraf } = require('telegraf');
 const axios = require('axios');
+const translate = require('@iamtraction/google-translate');
 
 const {
 	signUpHandle,
@@ -248,7 +249,7 @@ const setupBot = () => {
 	bot.command('help', (ctx) => {
 		ctx.reply(
 			'🤖 Notification Bot\n\n📅 To set up a notification: /set HH:MM Your notification message' +
-				'\n\n📆 To set reminder for short story: /setStory HH:MM Your notification message\n\n🗑 To delete a notification: ' +
+				'\n\n📆 To set reminder for short story: /setStory HH:MM Your notification message' +
 				'\n\n📆 To view all notifications: /viewReminder\n\n🗑 To delete a notification: ' +
 				'/deleteReminder <index>\n\n❓ For help: /help'
 		);
@@ -277,8 +278,45 @@ const setupBot = () => {
 			});
 
 		ctx.reply(
-			`🤖 Notification: học tiếng anh qua đoạn văn\n\n ${data.content} \n\n 🤵Tác giả: " ${data.author}"\n\n`
+			`🤖 Notification: học tiếng anh qua đoạn văn\n\n ${data.content}  \n\n🤵Tác giả: " ${data.author}"\n\n`,
+			{
+				parse_mode: 'HTML',
+				reply_markup: {
+					inline_keyboard: [
+						[
+							{
+								text: '💯📰 Dịch sang Tiếng Việt',
+								callback_data: `translate`,
+							},
+						],
+					],
+				},
+			}
 		);
+	});
+
+	bot.on('callback_query', async (ctx) => {
+		const callbackData = ctx.update.callback_query.data;
+
+		// Kiểm tra nếu callback data chứa dữ liệu translate
+		if (callbackData === 'translate') {
+			const messageText = ctx.update.callback_query.message.text;
+
+			const contentMess = messageText.split('\n')[2];
+			const data = await translate(contentMess, { to: 'vi' })
+				.then((res) => {
+					console.log(res.text);
+
+					return res.text;
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+
+			ctx.reply(
+				`📌Đây là bản dịch của bạn: \n\n ${data} \n\n 🏆 Mỗi ngày giỏi hơn 1%🎯`
+			);
+		}
 	});
 
 	function deleteReminder(userId, index) {
@@ -354,7 +392,20 @@ const setupBot = () => {
 
 					response = await bot.telegram.sendMessage(
 						userId,
-						`⏰ Reminder: ${message} \n\n  🔈 Học tiếng anh qua đoạn văn 💯\n\n ${data.content} \n\n 🤵Tác giả: " ${data.author}"\n\n`
+						`🤖 Notification: học tiếng anh qua đoạn văn\n\n ${data.content}  \n\n🤵Tác giả: " ${data.author}"\n\n`,
+						{
+							parse_mode: 'HTML',
+							reply_markup: {
+								inline_keyboard: [
+									[
+										{
+											text: '💯📰 Dịch sang Tiếng Việt',
+											callback_data: `translate`,
+										},
+									],
+								],
+							},
+						}
 					);
 					if (response) {
 						console.log('Message sent successfully:', response);
