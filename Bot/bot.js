@@ -1,6 +1,7 @@
 const { Telegraf } = require('telegraf');
 const axios = require('axios');
 const translate = require('@iamtraction/google-translate');
+const dayjs = require('dayjs');
 
 const {
 	signUpHandle,
@@ -56,8 +57,11 @@ const setupBot = () => {
 		return next();
 	});
 
-	//access bot
+	//access bot/////////////////////////////////////////////////////////
+
 	signUpHandle(bot);
+
+	//////////////////////////////////////////////////////////////////////
 
 	bot.hears('hi', (ctx) => {
 		ctx.reply(`hi ${ctx.from.first_name}! how are you today?`);
@@ -83,6 +87,15 @@ const setupBot = () => {
 				const notificationMessage = match[2];
 				const [hours, minutes] = time.split(':');
 
+				let alarmTimeLocal = dayjs()
+					.hour(hours)
+					.minute(minutes)
+					.second(0);
+				const convertTimeVNtoSingapore = alarmTimeLocal.add(17, 'hour');
+
+				let serverHour = convertTimeVNtoSingapore.hour();
+				let serverMinute = convertTimeVNtoSingapore.minute();
+
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
 
@@ -96,7 +109,7 @@ const setupBot = () => {
 					time,
 					message: notificationMessage,
 					job: schedule.scheduleJob(
-						{ hour: parseInt(hours), minute: parseInt(minutes) },
+						{ hour: parseInt(serverHour), minute: parseInt(serverMinute) },
 						async () => {
 							try {
 								const response = await sendMessageWithRetry(
@@ -148,6 +161,15 @@ const setupBot = () => {
 				const notificationMessage = match[2];
 				const [hours, minutes] = time.split(':');
 
+				let alarmTimeLocal = dayjs()
+				.hour(hours)
+				.minute(minutes)
+				.second(0);
+			const convertTimeVNtoSingapore = alarmTimeLocal.add(17, 'hour');
+
+			let serverHour = convertTimeVNtoSingapore.hour();
+			let serverMinute = convertTimeVNtoSingapore.minute();
+
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
 
@@ -161,7 +183,7 @@ const setupBot = () => {
 					time,
 					message: notificationMessage,
 					job: schedule.scheduleJob(
-						{ hour: parseInt(hours), minute: parseInt(minutes) },
+						{ hour: parseInt(serverHour), minute: parseInt(serverMinute) },
 						async () => {
 							try {
 								const response = await sendMessageWithRetry(
