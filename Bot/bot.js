@@ -96,6 +96,8 @@ const setupBot = () => {
 				let serverHour = convertTimeVNtoSingapore.hour();
 				let serverMinute = convertTimeVNtoSingapore.minute();
 
+				console.log({serverHour,serverMinute})
+
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
 
