@@ -1,6 +1,4 @@
-const tabulate = require('tabulate');
 
-const Table = require('cli-table');
 
 const TOPIC_GRAMMAR = `
 Hướng dẫn đăng ký sử dụng App:
