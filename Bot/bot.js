@@ -7,6 +7,7 @@ const {
 	signUpHandle,
 } = require('./controllerBot/access.controllerBot');
 const schedule = require('node-schedule');
+const { grammarEnglish } = require('./controllerBot/command/grammar');
 // const { scheduleNotification } = require('./controllerBot/feature/scheduleRemind');
 // const { LocalStorage } = require('node-localstorage');
 
@@ -29,7 +30,9 @@ const tutorialMessage = `
 	Đây là danh sách các câu lệnh
 	/start - Hiên thị các danh sách sử dụng bot
 	/signup - đăng ký sử dụng app
+	/grammar - Ngữ pháp thông dụng nhất
 `;
+
 
 // bot.use((ctx, next) => {
 // 	console.log(ctx);
@@ -62,6 +65,12 @@ const setupBot = () => {
 	signUpHandle(bot);
 
 	//////////////////////////////////////////////////////////////////////
+
+	grammarEnglish(bot)
+
+
+
+
 
 	bot.hears('hi', (ctx) => {
 		ctx.reply(`hi ${ctx.from.first_name}! how are you today?`);

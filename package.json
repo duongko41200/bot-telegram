@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "body-parser": "^1.20.2",
+    "cli-table": "^0.3.11",
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
@@ -17,6 +18,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "^3.0.1",
+    "tabulate": "^1.0.0",
     "telegraf": "^4.8.1",
     "web-vitals": "^2.1.4"
   },

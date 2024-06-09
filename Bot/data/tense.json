@@ -1,0 +1,77 @@
+{
+	"tense": [
+		{
+			"id": 0,
+			"command": "HTD",
+			"title": "<b>Thì Hiện Tại Đơn</b> (<i>Present Simple</i>)",
+			"des": [
+				{ "name": "1️⃣ sự thật hiển nhiên, chân lý " },
+				{ "name": "2️⃣ thói quen hằng ngày(<i> Lặp đi lặp lại</i>) " },
+				{ "name": "3️⃣ Lịch trình, thời gian biểu...  " },
+				{ "name": "4️⃣ cảm xúc, cảm giác, suy nghĩ " }
+			],
+			"khangDinh": "Subject + V1 (s/es) + Object",
+			"phuDinh": "Subject + do/does + not + V1 + Object",
+			"cauHoi": "(WH) + Do/Does + Subject + V1 + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 Bạn gặp một người bạn và hỏi về thói quen hàng ngày của họ:\nYou: What do you do every morning?\nFriend: I usually go for a run and then have breakfast."
+				},
+				{
+					"name": "📌 Bạn đang nói về sự thật hiển nhiên với ai đó:\nDid you know that water boils at 100 degrees Celsius"
+				},
+				{
+					"name": "📌 Bạn hỏi về lịch trình của một sự kiện:\nYou: What time does your flight take off?\nFriend: My flight takes off at 7:00 in the morning."
+				}
+			]
+		},
+		{
+			"id": 1,
+			"command": "HTTD",
+			"title": "<b>Hiện Tại Tiếp Diễn</b> (<i>Present Continuous</i>)",
+			"des": [
+				{ "name": "1️⃣ Hành động đang diễn ra tại thời điểm nói hoặc khoảnh khắc ở hiện tại" },
+				{ "name": "2️⃣ hành động đang diễn ra tạm thời <i>không nhất thiết phải diễn ra ở thời điểm nói.</i> " }
+			],
+			"khangDinh": "Subject + am/is/are + V-ing + Object",
+			"phuDinh": "Subject + am/is/are + not + V-ing + Object",
+			"cauHoi": "(Wh-) + am/is/are + Subject + V-ing + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <u>Diễn tả hành động đang diễn ra tại thời điểm nói</u>:\nYou: What are you doing?\nFriend: I am studying English exercises."
+				},
+				{
+					"name": "📌 <u>Diễn tả hành động tạm thời đang diễn ra nhưng không nhất thiết là tại thời điểm nói</u>:\nShe is studying for the exam\nWe are preparing for the party"
+				}
+
+			]
+		},
+		{
+			"id": 2,
+			"command": "HTHT",
+			"title": "<b>Hiện Tại Hoàn Thành</b> (<i>Present Perfect</i>)",
+			"des": [
+				{ "name": "1️⃣ Hành động đã xảy ra trong quá khứ và có ảnh hưởng đến hiện tại:" },
+				{ "name": "2️⃣ Diễn tả kinh nghiệm cuộc sống hoặc sự thay đổi kể từ quá khứ" },
+				{ "name": "3️⃣ Diễn tả hành động đã xảy ra trong khoảng thời gian chưa kết thúc" }
+			],
+			"khangDinh": "Subject + have/has + V3 + Object",
+			"phuDinh": "Subject + have/has + not + V3 + Object",
+			"cauHoi": "(Wh-) + Have/Has + Subject + V3 + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả hành động đã xảy ra trong quá khứ và có ảnh hưởng đến hiện tại</i>:\nI have read this book."
+				},
+				{
+					"name": "📌 <i>Diễn tả kinh nghiệm cuộc sống hoặc sự thay đổi kể từ quá khứ</i>:\nI have eaten sushi before\nShe has never been to Paris."
+				},
+				{
+					"name": "📌 <i>Diễn tả hành động đã xảy ra trong khoảng thời gian chưa kết thúc</i>:\nI have worked here for 5 years\nWe have been waiting for you all afternoon"
+				}
+
+			]
+		}
+	
+	
+	]
+}
