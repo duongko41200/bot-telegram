@@ -1,5 +1,4 @@
 const axios = require('axios');
-// const { TOPIC_GRAMMAR, TOPIC_THI, TOPIC_CDK, TEST, HTD } = require('../../../CONTANT/grammar/grammar');
 const data = require('../../../data/tense.json');
 
 const getTense = async (command) => {
@@ -39,34 +38,34 @@ const grammarTense = async (bot) => {
 	bot.command('HTD', async (ctx) => {
 		try {
 			const message = await getTense('HTD');
-			console.log('Message:', message); // Ghi log dữ liệu tin nhắn trước khi gửi đi
+			console.log('Message:', message); 
 			bot.telegram.sendMessage(ctx.message.from.id, message, {
 				parse_mode: 'HTML',
 			});
 		} catch (error) {
-			console.error('Error:', error); // Ghi log lỗi nếu có
+			console.error('Error:', error); 
 		}
 	});
 	bot.command('HTTD', async (ctx) => {
 		try {
 			const message = await getTense('HTTD');
-			console.log('Message:', message); // Ghi log dữ liệu tin nhắn trước khi gửi đi
+			console.log('Message:', message); 
 			bot.telegram.sendMessage(ctx.message.from.id, message, {
 				parse_mode: 'HTML',
 			});
 		} catch (error) {
-			console.error('Error:', error); // Ghi log lỗi nếu có
+			console.error('Error:', error); 
 		}
 	});
 	bot.command('HTHT', async (ctx) => {
 		try {
 			const message = await getTense('HTHT');
-			console.log('Message:', message); // Ghi log dữ liệu tin nhắn trước khi gửi đi
+			console.log('Message:', message); 
 			bot.telegram.sendMessage(ctx.message.from.id, message, {
 				parse_mode: 'HTML',
 			});
 		} catch (error) {
-			console.error('Error:', error); // Ghi log lỗi nếu có
+			console.error('Error:', error); 
 		}
 	});
 };
