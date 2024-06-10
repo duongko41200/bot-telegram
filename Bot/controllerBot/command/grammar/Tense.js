@@ -68,6 +68,85 @@ const grammarTense = async (bot) => {
 			console.error('Error:', error); 
 		}
 	});
+	bot.command('HTHTTD', async (ctx) => {
+		try {
+			const message = await getTense('HTHTTD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+	bot.command('QKD', async (ctx) => {
+		try {
+			const message = await getTense('QKD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+	bot.command('QKTD', async (ctx) => {
+		try {
+			const message = await getTense('QKTD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+	bot.command('QKHT', async (ctx) => {
+		try {
+			const message = await getTense('QKHT');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+
+	bot.command('QKHTTD', async (ctx) => {
+		try {
+			const message = await getTense('QKHTTD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+
+	bot.command('TLD', async (ctx) => {
+		try {
+			const message = await getTense('TLD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+	bot.command('TLTD', async (ctx) => {
+		try {
+			const message = await getTense('TLTD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
 };
 
 module.exports = { grammarTense };

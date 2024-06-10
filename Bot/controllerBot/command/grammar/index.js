@@ -20,7 +20,7 @@ const grammarEnglish = (bot) => {
 	bot.command('test', (ctx) => {
 		ctx.reply( TEST, { parse_mode: 'HTML' })
 
-	})
+	}) 
 
 
 	grammarTense(bot)

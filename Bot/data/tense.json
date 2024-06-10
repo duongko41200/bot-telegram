@@ -30,8 +30,12 @@
 			"command": "HTTD",
 			"title": "<b>Hiện Tại Tiếp Diễn</b> (<i>Present Continuous</i>)",
 			"des": [
-				{ "name": "1️⃣ Hành động đang diễn ra tại thời điểm nói hoặc khoảnh khắc ở hiện tại" },
-				{ "name": "2️⃣ hành động đang diễn ra tạm thời <i>không nhất thiết phải diễn ra ở thời điểm nói.</i> " }
+				{
+					"name": "1️⃣ Hành động đang diễn ra tại thời điểm nói hoặc khoảnh khắc ở hiện tại"
+				},
+				{
+					"name": "2️⃣ hành động đang diễn ra tạm thời <i>không nhất thiết phải diễn ra ở thời điểm nói.</i> "
+				}
 			],
 			"khangDinh": "Subject + am/is/are + V-ing + Object",
 			"phuDinh": "Subject + am/is/are + not + V-ing + Object",
@@ -43,7 +47,6 @@
 				{
 					"name": "📌 <u>Diễn tả hành động tạm thời đang diễn ra nhưng không nhất thiết là tại thời điểm nói</u>:\nShe is studying for the exam\nWe are preparing for the party"
 				}
-
 			]
 		},
 		{
@@ -51,9 +54,15 @@
 			"command": "HTHT",
 			"title": "<b>Hiện Tại Hoàn Thành</b> (<i>Present Perfect</i>)",
 			"des": [
-				{ "name": "1️⃣ Hành động đã xảy ra trong quá khứ và có ảnh hưởng đến hiện tại:" },
-				{ "name": "2️⃣ Diễn tả kinh nghiệm cuộc sống hoặc sự thay đổi kể từ quá khứ" },
-				{ "name": "3️⃣ Diễn tả hành động đã xảy ra trong khoảng thời gian chưa kết thúc" }
+				{
+					"name": "1️⃣ Hành động đã xảy ra trong quá khứ và có ảnh hưởng đến hiện tại:"
+				},
+				{
+					"name": "2️⃣ Diễn tả kinh nghiệm cuộc sống hoặc sự thay đổi kể từ quá khứ"
+				},
+				{
+					"name": "3️⃣ Diễn tả hành động đã xảy ra trong khoảng thời gian chưa kết thúc"
+				}
 			],
 			"khangDinh": "Subject + have/has + V3 + Object",
 			"phuDinh": "Subject + have/has + not + V3 + Object",
@@ -68,10 +77,223 @@
 				{
 					"name": "📌 <i>Diễn tả hành động đã xảy ra trong khoảng thời gian chưa kết thúc</i>:\nI have worked here for 5 years\nWe have been waiting for you all afternoon"
 				}
-
+			]
+		},
+		{
+			"id": 3,
+			"command": "HTHTTD",
+			"title": "<b>Hiện Tại Hoàn Thành Tiếp Diễn</b> (<i>Present Perfect Continuou</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động bắt đầu trong quá khứ và <b>vẫn tiếp tục </b> diễn ra đến hiện tại"
+				},
+				{
+					"name": "2️⃣ Hành động vừa mới kết thúc và có kết quả hiện tại rõ ràng"
+				},
+				{
+					"name": "3️⃣ Hành động có tính tạm thời, <b>không phải</b> là hành động lặp đi lặp lại"
+				}
+			],
+			"khangDinh": "Subject + have/has + been + V-ing + Object",
+			"phuDinh": "Subject + have/has + not + been + V-ing + Object",
+			"cauHoi": "(Wh-) + Have/Has + Subject + been + V-ing + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả hành động bắt đầu trong quá khứ và vẫn tiếp tục đến hiện tại</i>:\nI have been studying English for two hours\nThey have been living here since 2010"
+				},
+				{
+					"name": "📌 <i>Diễn tả hành động vừa mới kết thúc và có kết quả hiện tại rõ ràng</i>:\nHe has been running and now he is tired.\nShe has been cooking and now the kitchen is very messy."
+				},
+				{
+					"name": "📌 <i>Diễn tả hành động có tính tạm thời</i>:\nHe has been fixing the car all morning\nWe have been working on this project all week."
+				}
+			]
+		},
+		{
+			"id": 4,
+			"command": "QKD",
+			"title": "<b>Quá Khứ Đơn</b> (<i>Past Simple</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động đã xảy ra và <b>kết thúc</b> trong quá khứ:"
+				},
+				{
+					"name": "2️⃣ Thói quen hoặc hành động lặp đi lặp lại trong quá khứ nhưng không còn xảy ra ở hiện tại"
+				},
+				{
+					"name": "3️⃣ Hành động có tính tạm thời, <b>không phải</b> là hành động lặp đi lặp lại"
+				}
+			],
+			"khangDinh": "Subject + V2 + Object",
+			"phuDinh": "Subject + did not (didn't) + V1 + Object",
+			"cauHoi": "(Wh-) + Did + Subject + V1 + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả hành động đã xảy ra và kết thúc trong quá khứ</i>:\nI ate dinner at 7 PM yesterday."
+				},
+				{
+					"name": "📌 <i>Diễn tả thói quen hoặc hành động lặp đi lặp lại trong quá khứ</i>:\nWhen I was a child, I used to go swimming every Saturday morning.\nMy father used to read the newspaper every morning."
+				},
+				{
+					"name": "📌 <i>Diễn tả sự kiện hoặc trạng thái cụ thể đã kết thúc trong quá khứ</i>:\nShe lived in Japan for two years\nWe were in the same class in high school"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"command": "QKTD",
+			"title": "<b>Quá Khứ Tiếp Diễn</b> (<i>Past Continuous</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động đang diễn ra tại một thời điểm cụ thể trong quá khứ"
+				},
+				{
+					"name": "2️⃣ Diễn tả hai hoặc nhiều hành động đang diễn ra đồng thời trong quá khứ"
+				},
+				{
+					"name": "3️⃣ Hành động đang diễn ra thì có một hành động khác xen vào trong quá khứ"
+				},
+				{
+					"name": "4️⃣ Diễn tả bối cảnh của một câu chuyện trong quá khứ"
+				}
+			],
+			"khangDinh": "Subject + was/were + V-ing + Object",
+			"phuDinh": "Subject + was/were + not + V-ing + Object",
+			"cauHoi": "(Wh-) + was/were + Subject + V-ing + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả một hành động đang diễn ra tại một thời điểm cụ thể trong quá khứ</i>:\nI was studying when he called"
+				},
+				{
+					"name": "📌 <i>Diễn tả hai hoặc nhiều hành động đang diễn ra đồng thời trong quá khứ</i>:\nI was cooking while my sister was watching TV."
+				},
+				{
+					"name": "📌 <i>Diễn tả một hành động đang diễn ra thì có một hành động khác xen vào trong quá khứ</i>:\nWe were walking when it started to rain."
+				},
+				{
+					"name": "📌 <i>Diễn tả bối cảnh của một câu chuyện trong quá khứ</i>:\nIt was raining and the wind was blowing hard.\nAt that time, I was living in Hanoi"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"command": "QKHT",
+			"title": "<b>Quá Khứ Hoàn Thành</b> (<i>Past Simple</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động đã xảy ra và <b>kết thúc</b> trong quá khứ:"
+				},
+				{
+					"name": "2️⃣ Thói quen hoặc hành động lặp đi lặp lại trong quá khứ nhưng không còn xảy ra ở hiện tại"
+				},
+				{
+					"name": "3️⃣ Hành động có tính tạm thời, <b>không phải</b> là hành động lặp đi lặp lại"
+				}
+			],
+			"khangDinh": "Subject + V2 + Object",
+			"phuDinh": "Subject + did not (didn't) + V1 + Object",
+			"cauHoi": "(Wh-) + Did + Subject + V1 + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả hành động đã xảy ra và kết thúc trong quá khứ</i>:\nI ate dinner at 7 PM yesterday."
+				},
+				{
+					"name": "📌 <i>Diễn tả thói quen hoặc hành động lặp đi lặp lại trong quá khứ</i>:\nWhen I was a child, I used to go swimming every Saturday morning.\nMy father used to read the newspaper every morning."
+				},
+				{
+					"name": "📌 <i>Diễn tả sự kiện hoặc trạng thái cụ thể đã kết thúc trong quá khứ</i>:\nShe lived in Japan for two years\nWe were in the same class in high school"
+				}
+			]
+		},
+		{
+			"id": 7,
+			"command": "QKHTTD",
+			"title": "<b>Quá Khứ Hoàn Thành Tiếp Diễn</b> (<i>Past Simple</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động <b>đã bắt đầu và tiếp tục</b> trong một khoảng thời gian trước một thời điểm hoặc hành động khác trong quá khứ"
+				},
+				{
+					"name": "2️⃣ Hành động đã diễn ra liên tục trước một hành động hoặc thời điểm cụ thể trong quá khứ"
+				}
+			],
+			"khangDinh": "Subject + had + been + V-ing + Object",
+			"phuDinh": "Subject + had + not + been + V-ing + Object",
+			"cauHoi": "(Wh-) + had + Subject + been + V-ing + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả một hành động đã bắt đầu và tiếp tục trong một khoảng thời gian trước một thời điểm hoặc hành động khác trong quá khứ</i>:\nI had been reading a book for an hour before he called.\nThey had been working on that project for three months before it was cancelled."
+				},
+				{
+					"name": "📌 <i>Diễn tả một hành động đã diễn ra liên tục trước một hành động hoặc thời điểm cụ thể trong quá khứ</i>:\nShe had been cooking all morning before the guests arrived.\nWe had been playing basketball for two hours before it started to rain."
+				}
+			]
+		},
+		{
+			"id": 8,
+			"command": "TLD",
+			"title": "<b>Tương Lai Đơn</b> (<i>Future Simple</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động sẽ xảy ra trong <b>tương lai</b>"
+				},
+				{
+					"name": "2️⃣ Dự đoán về một hành động hoặc sự kiện trong tương lai:"
+				},
+				{
+					"name": "3️⃣ Quyết định tức thì tại thời điểm nói"
+				},
+				{
+					"name": "4️⃣ Lời hứa, đề nghị hoặc yêu cầu"
+				}
+			],
+			"khangDinh": "Subject + will + V1 + Object",
+			"phuDinh": "Subject + will not (won't) + V1 + Object",
+			"cauHoi": "(Wh-) + will + Subject + V1 + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Diễn tả một hành động sẽ xảy ra trong tương lai</i>:\nI will buy a new computer next week"
+				},
+				{
+					"name": "📌 <i>Dự đoán về một hành động hoặc sự kiện trong tương lai</i>:\nHe will become a great doctor.\nI think we will win this match"
+				},
+				{
+					"name": "📌 <i>Diễn tả quyết định tức thì tại thời điểm nói</i>:\nI am tired. I will take a rest.\nIt is raining. I will take an umbrella."
+				},
+				{
+					"name": "📌 <i>Lời hứa, đề nghị hoặc yêu cầu</i>:\nI will call you back later.\nWill you help me with the homework?"
+				}
+			]
+		},
+		{
+			"id": 9,
+			"command": "TLTD",
+			"title": "<b>Tương Lai Đơn</b> (<i>Future Simple</i>)",
+			"des": [
+				{
+					"name": "1️⃣ hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai"
+				},
+				{
+					"name": "2️⃣ Hành động sẽ diễn ra và kéo dài liên tục trong một khoảng thời gian trong tương lai"
+				},
+				{
+					"name": "3️⃣ hành động <b>chắc chắn</b> sẽ xảy ra theo kế hoạch hoặc lịch trình"
+				}
+			],
+			"khangDinh": "Subject + will be + V-ing + Object",
+			"phuDinh": "Subject + will not (won't) be + V-ing + Object",
+			"cauHoi": "(Wh-) + will + Subject + be + V-ing + Object?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai</i>:\nAt 10 AM tomorrow, I will be having a meeting"
+				},
+				{
+					"name": "📌 <i>hành động sẽ diễn ra và kéo dài liên tục trong một khoảng thời gian trong tương lai</i>:\nAll afternoon today, they will be working on that project."
+				},
+				{
+					"name": "📌 <i>Diễn tả một hành động chắc chắn sẽ xảy ra theo kế hoạch hoặc lịch trình</i>:\nWe will be flying to New York this weekend\nHe will be driving home at this time tomorrow."
+				}
 			]
 		}
-	
-	
 	]
 }

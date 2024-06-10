@@ -58,16 +58,16 @@ app.listen(port, () => {
 
 
 
-	schedule.scheduleJob(
-		{ hour: parseInt(2), minute: parseInt(30) },
-		() => {
-			// Send the notification to the user
-			bot.telegram.sendMessage(
-				5968988559,
-				`⏰ Reminder: learn english`
-			);
-		}
-	);
+	// schedule.scheduleJob(
+	// 	{ hour: parseInt(2), minute: parseInt(30) },
+	// 	() => {
+	// 		// Send the notification to the user
+	// 		bot.telegram.sendMessage(
+	// 			5968988559,
+	// 			`⏰ Reminder: learn english`
+	// 		);
+	// 	}
+	// );
 
 	//schedule gọi
 });

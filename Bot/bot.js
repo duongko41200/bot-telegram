@@ -27,12 +27,14 @@ axios.defaults.headers = {
 const web_link = 'https://bot-app-english.vercel.app/';
 
 const tutorialMessage = `
-	Đây là danh sách các câu lệnh
+
+	<b>WellCome</b>
+
 	/start - Hiên thị các danh sách sử dụng bot
 	/signup - đăng ký sử dụng app
 	/grammar - Ngữ pháp thông dụng nhất
+	/reminder - Hẹn thông báo nhắc nhở
 `;
-
 
 // bot.use((ctx, next) => {
 // 	console.log(ctx);
@@ -49,6 +51,7 @@ const setupBot = () => {
 			reply_markup: {
 				keyboard: [[{ text: 'web app', web_app: { url: web_link } }]],
 			},
+			parse_mode: 'HTML',
 		});
 
 		// Lưu idTelegram vào localStorage
@@ -66,11 +69,7 @@ const setupBot = () => {
 
 	//////////////////////////////////////////////////////////////////////
 
-	grammarEnglish(bot)
-
-
-
-
+	grammarEnglish(bot);
 
 	bot.hears('hi', (ctx) => {
 		ctx.reply(`hi ${ctx.from.first_name}! how are you today?`);
@@ -105,7 +104,7 @@ const setupBot = () => {
 				let serverHour = convertTimeVNtoSingapore.hour();
 				let serverMinute = convertTimeVNtoSingapore.minute();
 
-				console.log({serverHour,serverMinute})
+				console.log({ serverHour, serverMinute });
 
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
@@ -120,7 +119,10 @@ const setupBot = () => {
 					time,
 					message: notificationMessage,
 					job: schedule.scheduleJob(
-						{ hour: parseInt(serverHour), minute: parseInt(serverMinute) },
+						{
+							hour: parseInt(serverHour),
+							minute: parseInt(serverMinute),
+						},
 						async () => {
 							try {
 								const response = await sendMessageWithRetry(
@@ -173,13 +175,13 @@ const setupBot = () => {
 				const [hours, minutes] = time.split(':');
 
 				let alarmTimeLocal = dayjs()
-				.hour(hours)
-				.minute(minutes)
-				.second(0);
-			const convertTimeVNtoSingapore = alarmTimeLocal.add(17, 'hour');
+					.hour(hours)
+					.minute(minutes)
+					.second(0);
+				const convertTimeVNtoSingapore = alarmTimeLocal.add(17, 'hour');
 
-			let serverHour = convertTimeVNtoSingapore.hour();
-			let serverMinute = convertTimeVNtoSingapore.minute();
+				let serverHour = convertTimeVNtoSingapore.hour();
+				let serverMinute = convertTimeVNtoSingapore.minute();
 
 				// Save the notification for the user
 				const userId = ctx.message.from.id;
@@ -194,7 +196,10 @@ const setupBot = () => {
 					time,
 					message: notificationMessage,
 					job: schedule.scheduleJob(
-						{ hour: parseInt(serverHour), minute: parseInt(serverMinute) },
+						{
+							hour: parseInt(serverHour),
+							minute: parseInt(serverMinute),
+						},
 						async () => {
 							try {
 								const response = await sendMessageWithRetry(
@@ -279,7 +284,7 @@ const setupBot = () => {
 	});
 
 	// Command to show help and disable other commands
-	bot.command('help', (ctx) => {
+	bot.command(['help', 'reminder'], (ctx) => {
 		ctx.reply(
 			'🤖 Notification Bot\n\n📅 To set up a notification: /set HH:MM Your notification message' +
 				'\n\n📆 To set reminder for short story: /setStory HH:MM Your notification message' +
