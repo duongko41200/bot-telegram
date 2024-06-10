@@ -14,11 +14,11 @@ const grammarEnglish = (bot) => {
 		);
 	});
 	bot.command('CDK', (ctx) => {
-		bot.telegram.sendMessage(ctx.message.from.id, TOPIC_CDK, { parse_mode: 'HTML' })
+		ctx.reply( TOPIC_CDK, { parse_mode: 'HTML' })
 
 	})
 	bot.command('test', (ctx) => {
-		bot.telegram.sendMessage(ctx.message.from.id, TEST, { parse_mode: 'HTML' })
+		ctx.reply( TEST, { parse_mode: 'HTML' })
 
 	})
 
