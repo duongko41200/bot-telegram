@@ -1,5 +1,11 @@
-const { TOPIC_GRAMMAR, TOPIC_THI, TOPIC_CDK, TEST } = require('../../../CONTANT/grammar/grammar');
+const {
+	TOPIC_GRAMMAR,
+	TOPIC_THI,
+	TOPIC_CDK,
+	TEST,
+} = require('../../../CONTANT/grammar/grammar');
 const { grammarTense } = require('./Tense');
+const { grammarCondition } = require('./condition');
 
 const grammarEnglish = (bot) => {
 	bot.command('grammar', (ctx) => {
@@ -9,22 +15,17 @@ const grammarEnglish = (bot) => {
 	});
 
 	bot.command('Tenses', (ctx) => {
-		ctx.reply(
-			`Danh sách THÌ thông dụng\n ${TOPIC_THI}`
-		);
+		ctx.reply(`${TOPIC_THI}`, { parse_mode: 'HTML' });
 	});
 	bot.command('CDK', (ctx) => {
-		ctx.reply( TOPIC_CDK, { parse_mode: 'HTML' })
-
-	})
+		ctx.reply(TOPIC_CDK, { parse_mode: 'HTML' });
+	});
 	bot.command('test', (ctx) => {
-		ctx.reply( TEST, { parse_mode: 'HTML' })
+		ctx.reply(TEST, { parse_mode: 'HTML' });
+	});
 
-	}) 
-
-
-	grammarTense(bot)
-
+	grammarTense(bot);
+	grammarCondition(bot)
 };
 
 module.exports = { grammarEnglish };

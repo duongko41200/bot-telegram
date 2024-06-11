@@ -1,0 +1,51 @@
+{
+	"condition": [
+		{
+			"id": 0,
+			"command": "condition1",
+			"title": "<b>Câu Điều Kiện Loại 1 </b>",
+			"des": [
+				{ "name": "1️⃣Diễn tả một điều kiện có thể xảy ra trong tương lai và kết quả của nó" }
+			],
+			"congThuc": "If + Present Simple, Subject + will + V1",
+			"giaiThich":"Mệnh đề điều kiện dùng thì hiện tại đơn, còn mệnh đề chính dùng 'will' cộng với động từ nguyên mẫu để diễn tả hành động hoặc sự kiện có khả năng xảy ra trong tương lai nếu điều kiện được đáp ứng",
+			"tinhHuong": [
+				{
+					"name": "📌 If it rains tomorrow, we will stay at home\n\n <b>Giải thích:</b> Khi điều kiện 'it rains tomorrow' (trời mưa vào ngày mai) xảy ra, kết quả 'we will stay at home' (chúng tôi sẽ ở nhà) sẽ diễn ra"
+				}
+			]
+		},
+		{
+			"id": 1,
+			"command": "condition2",
+			"title": "<b>Câu Điều Kiện Loại 2 </b>",
+			"des": [
+				{ "name": "1️⃣Diễn tả một điều kiện không có thật hoặc không thể xảy ra trong hiện tại hoặc tương lai và kết quả của nó." }
+			],
+			"congThuc": " If + Past Simple, Subject + would + V1",
+			"giaiThich":" Mệnh đề điều kiện dùng thì quá khứ đơn, còn mệnh đề chính dùng 'would' cộng với động từ nguyên mẫu để diễn tả hành động hoặc sự kiện không có thật hoặc khó xảy ra trong hiện tại hoặc tương lai",
+			"tinhHuong": [
+				{
+					"name": "📌 If I were you, I would study harder\n\n <b>Giải thích:</b>  Mệnh đề điều kiện 'if I were you' (nếu tôi là bạn) là một tình huống không thể xảy ra trong thực tế, và kết quả 'I would study harder' (tôi sẽ học chăm chỉ hơn) là điều mà người nói muốn khuyên."
+				}
+			]
+		},
+		{
+			"id": 2,
+			"command": "condition3",
+			"title": "<b>Câu Điều Kiện Loại 3 </b>",
+			"des": [
+				{ "name": "1️⃣ Diễn tả một điều kiện không có thật trong quá khứ và kết quả của nó." }
+			],
+			"congThuc": "If + Past Perfect, S + would have + V3",
+			"giaiThich":"Mệnh đề điều kiện dùng thì quá khứ hoàn thành, còn mệnh đề chính dùng <b>would have</b> cộng với động từ quá khứ phân từ để diễn tả hành động hoặc sự kiện không có thật trong quá khứ.",
+			"tinhHuong": [
+				{
+					"name": "📌 If I had known about the party, I would have gone\n\n <b>Giải thích:</b>Điều kiện <b>if I had known about the party</b> (nếu tôi biết về bữa tiệc) không có thật trong quá khứ, và kết quả <b>I would have gone</b> (tôi đã đi) là điều mà người nói muốn diễn tả."
+				}
+			]
+			
+		}
+		
+	]
+}

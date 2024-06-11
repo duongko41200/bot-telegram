@@ -268,7 +268,7 @@
 		{
 			"id": 9,
 			"command": "TLTD",
-			"title": "<b>Tương Lai Đơn</b> (<i>Future Simple</i>)",
+			"title": "<b>Tương Lai Tiếp Diễn</b> (<i>Future Continuous</i>)",
 			"des": [
 				{
 					"name": "1️⃣ hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai"
@@ -292,6 +292,64 @@
 				},
 				{
 					"name": "📌 <i>Diễn tả một hành động chắc chắn sẽ xảy ra theo kế hoạch hoặc lịch trình</i>:\nWe will be flying to New York this weekend\nHe will be driving home at this time tomorrow."
+				}
+			]
+		},
+		{
+			"id": 10,
+			"command": "TLHT",
+			"title": "<b>Tương Lai Hoàn Thành</b> (<i>Future Perfect</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động sẽ hoàn thành trước một thời điểm hoặc một hành động khác trong tương lai."
+				},
+				{
+					"name": "2️⃣ Hành động sẽ hoàn thành trong một khoảng thời gian xác định trong tương lai"
+				},
+				{
+					"name": "3️⃣ <b>Nhấn mạnh kết quả</b> của một hành động sẽ hoàn thành trước một thời điểm trong tương lai."
+				}
+			],
+			"khangDinh": "Subject + will have + V3",
+			"phuDinh": "Subject + will not (won't) have + V3 (past participle)",
+			"cauHoi": "(Wh-) + Will + Subject + have + V3 (past participle)?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i> Bạn lên kế hoạch hoàn thành công việc trước một thời điểm cụ thể trong tương lai</i>:\nYou: When will you finish this assignment?\nFriend: I will have finished the assignment by 6 PM tonight.\n<b>Giải thích</b>"
+				},
+				{
+					"name": "📌 <i>Diễn tả một hành động sẽ hoàn thành trong một khoảng thời gian xác định trong tương lai</i>:\nI will have left the office before it gets dark"
+				},
+				{
+					"name": "📌 <i>Diễn tả về tiến độ của một dự án sẽ hoàn thành trước một thời điểm trong tương lai</i>:\nYou:Will you have completed this project by next week?\nFriend: Yes, I will have completed it before Monday."
+				}
+			]
+		},
+		{
+			"id": 11,
+			"command": "TLHTTD",
+			"title": "<b>Tương Lai Hoàn Thành Tiếp Diễn</b> (<i>Future Perfect Continuous</i>)",
+			"des": [
+				{
+					"name": "1️⃣ Hành động sẽ đang xảy ra và tiếp diễn liên tục đến một thời điểm trong tương lai"
+				},
+				{
+					"name": "2️⃣ Hành động đã bắt đầu trong quá khứ, đang diễn ra ở hiện tại và sẽ tiếp tục diễn ra trong tương lai trước một mốc thời gian nhất định"
+				}
+		
+			],
+			"khangDinh": "Subject + will have been + V-ing",
+			"phuDinh": "Subject + will not (won't) have been + V-ing",
+			"cauHoi": "Will + Subject + have been + V-ing?",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Bạn hỏi về thời gian học tập trước khi có một sự kiện diễn ra</i>:\nYou:How long will she have been studying by the time you arrive?\nFriend: She will have been studying for two hours by the time you arrive.\n\n<b>Giải thích:</b>Hành động học bắt đầu trong quá khứ, đang diễn ra và sẽ tiếp tục cho đến một thời điểm cụ thể trong tương lai (trước khi bạn đến)."
+				},
+				{
+					"name": "📌 <i>Bạn nói về thời gian làm việc ở một công ty</i>:\nYou: How long will you have been working here by next month?\nFriend:I will have been working here for five years by next month.\n\n<b>Giải thích:</b> Hành động làm việc đã bắt đầu trong quá khứ, đang tiếp diễn ở hiện tại và sẽ hoàn thành vào một thời điểm cụ thể trong tương lai (tháng tới)"
+				},
+				{
+					"name": "📌 <i>Bạn hỏi về thời gian du lịch trước khi kết thúc một chuyến đi</i>:\nYou: Will they have been traveling for a month by the end of this trip?\nFriend: Yes, they will have been traveling for a month by then.\n\n<b>Giải thích:</b> Hành động đi du lịch bắt đầu trong quá khứ, đang tiếp diễn và sẽ hoàn thành vào một thời điểm cụ thể trong tương lai (trước khi chuyến đi kết thúc)."
 				}
 			]
 		}

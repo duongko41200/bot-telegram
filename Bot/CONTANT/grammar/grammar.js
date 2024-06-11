@@ -16,6 +16,7 @@ Hướng dẫn đăng ký sử dụng App:
 `;
 
 const TOPIC_THI = `
+<b>👑🔅 Chủ Đề Về Các Thì 👑🔅</b>
 
 1. /HTD - Thì Hiện Tại đơn
 2. /HTTD - Thì Hiện Tại Tiếp Diễn
@@ -32,51 +33,11 @@ const TOPIC_THI = `
 
 `;
 const TOPIC_CDK = `
-📜 <b>English Tenses</b>
+<b>👑🔅 Chủ Đề Về Câu Điều Kiện 👑🔅</b>
 
-1. <b>Present Tenses:</b>
-   - <b>Present Simple:</b> 
-     - Structure: <code>Subject + V1 (s/es)</code>
-     - Example: <code>He eats.</code>
-   - <b>Present Continuous:</b> 
-     - Structure: <code>Subject + am/is/are + V-ing</code>
-     - Example: <code>He is eating.</code>
-   - <b>Present Perfect:</b> 
-     - Structure: <code>Subject + have/has + V3</code>
-     - Example: <code>He has eaten.</code>
-   - <b>Present Perfect Continuous:</b> 
-     - Structure: <code>Subject + have/has been + V-ing</code>
-     - Example: <code>He has been eating.</code>
-
-2. <b>Past Tenses:</b>
-   - <b>Past Simple:</b> 
-     - Structure: <code>Subject + V2</code>
-     - Example: <code>He ate.</code>
-   - <b>Past Continuous:</b> 
-     - Structure: <code>Subject + was/were + V-ing</code>
-     - Example: <code>He was eating.</code>
-   - <b>Past Perfect:</b> 
-     - Structure: <code>Subject + had + V3</code>
-     - Example: <code>He had eaten.</code>
-   - <b>Past Perfect Continuous:</b> 
-     - Structure: <code>Subject + had been + V-ing</code>
-     - Example: <code>He had been eating.</code>
-
-3. <b>Future Tenses:</b>
-   - <b>Future Simple:</b> 
-     - Structure: <code>Subject + will + V1</code>
-     - Example: <code>He will eat.</code>
-   - <b>Future Continuous:</b> 
-     - Structure: <code>Subject + will be + V-ing</code>
-     - Example: <code>He will be eating.</code>
-   - <b>Future Perfect:</b> 
-     - Structure: <code>Subject + will have + V3</code>
-     - Example: <code>He will have eaten.</code>
-   - <b>Future Perfect Continuous:</b> 
-     - Structure: <code>Subject + will have been + V-ing</code>
-     - Example: <code>He will have been eating.</code>
-
-
+1./condition1 - Câu điều kiện loại 1
+2./condition2 - Câu điều kiện loại 2
+3./condition3 - Câu điều kiện loại 3
 `;
 
 const TEST = `

@@ -2,6 +2,7 @@ const { Telegraf } = require('telegraf');
 const axios = require('axios');
 const translate = require('@iamtraction/google-translate');
 const dayjs = require('dayjs');
+const path = require('path');
 
 const {
 	signUpHandle,
@@ -28,11 +29,12 @@ const web_link = 'https://bot-app-english.vercel.app/';
 
 const tutorialMessage = `
 
-	<b>WellCome</b>
+	<b>WellCome to pikachu</b>
+	<i> Ban sẽ được hỗ trợ những câu lệnh phía dưới</i>👇👇👇
 
-	/start - Hiên thị các danh sách sử dụng bot
+	/start - Các cấu lệnh sử dụng bot
 	/signup - đăng ký sử dụng app
-	/grammar - Ngữ pháp thông dụng nhất
+	/grammar - Ngữ pháp 
 	/reminder - Hẹn thông báo nhắc nhở
 `;
 
@@ -47,16 +49,32 @@ const setupBot = () => {
 	const bot = new Telegraf(TOKEN);
 	bot.start((ctx) => {
 		// Gửi tin nhắn và thiết lập nút web_app
-		ctx.reply(`${tutorialMessage}`, {
+
+		const chatId = ctx.message.chat.id;
+		const photoPath = path.join(__dirname, '../public/wellcome.png'); // Đường dẫn tới tệp ảnh trên local
+		const messageText = tutorialMessage; // Tin nhắn bạn muốn gửi kèm theo ảnh
+	
+		// Gửi ảnh từ local
+		ctx.telegram.sendPhoto(chatId, { source: photoPath }, {
+			caption: messageText,
+			parse_mode: 'HTML',
 			reply_markup: {
 				keyboard: [[{ text: 'web app', web_app: { url: web_link } }]],
 			},
-			parse_mode: 'HTML',
-		});
+		})
 
+		// ctx.reply(`${tutorialMessage}`, {
+		// 	reply_markup: {
+		// 		keyboard: [[{ text: 'web app', web_app: { url: web_link } }]],
+		// 	},
+		// 	parse_mode: 'HTML',
+		// });
+		
 		// Lưu idTelegram vào localStorage
 		// localStorage.setItem('idTelegram', ctx.from.id.toString());
 	});
+
+
 
 	bot.use((ctx, next) => {
 		console.log('Received a message:', ctx.message);

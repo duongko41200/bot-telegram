@@ -26,7 +26,7 @@ const getTense = async (command) => {
 
  <b>🔅💥<u>Tình huống: </u></b>
  ${dataTense?.tinhHuong?.map((value) => {
-		return `<blockquote>${value.name}</blockquote>`;
+		return `<blockquote expandable>${value.name}</blockquote>`;
  }).join("\n")}
 
 `.trim();
@@ -147,6 +147,30 @@ const grammarTense = async (bot) => {
 			console.error('Error:', error); 
 		}
 	});
+	bot.command('TLHT', async (ctx) => {
+		try {
+			const message = await getTense('TLHT');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+	bot.command('TLHTTD', async (ctx) => {
+		try {
+			const message = await getTense('TLHTTD');
+			console.log('Message:', message); 
+			bot.telegram.sendMessage(ctx.message.from.id, message, {
+				parse_mode: 'HTML',
+			});
+		} catch (error) {
+			console.error('Error:', error); 
+		}
+	});
+
+
 };
 
 module.exports = { grammarTense };
