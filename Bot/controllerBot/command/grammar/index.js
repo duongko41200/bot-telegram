@@ -4,6 +4,7 @@ const {
 	TOPIC_CDK,
 	TEST,
 } = require('../../../CONTANT/grammar/grammar');
+const { grammarCBD } = require('./CBD.js');
 const { grammarTense } = require('./Tense');
 const { grammarCondition } = require('./condition');
 
@@ -26,6 +27,7 @@ const grammarEnglish = (bot) => {
 
 	grammarTense(bot);
 	grammarCondition(bot)
+	grammarCBD(bot)
 };
 
 module.exports = { grammarEnglish };

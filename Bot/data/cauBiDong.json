@@ -1,0 +1,28 @@
+{
+	"CBD": [
+		{
+			"id": 0,
+			"command": "CBD",
+			"title": "<b>Câu Bị Động <i>(Passive Voice)</i></b>",
+			"des": [
+				{ "name": "1️⃣ Nhấn mạnh hành động hoặc kết quả của hành động hơn là người thực hiện hành động đó." },
+				{ "name": "2️⃣ Thường dùng khi người thực hiện hành động không quan trọng, không rõ ràng hoặc muốn giữ bí mật. " }
+			],
+			"congThuc": [
+				{"name":"<b>Khẳng định </b>: Subject + am/is/are + V3 (past participle)\n<b>Phủ định</b>:Subject + am/is/are + not + V3 (past participle)\n<b>Câu hỏi</b>: Am/Is/Are + Subject + V3 (past participle)?"},
+				{"name":"<b>Khẳng định</b>: Subject + was/were + V3 (past participle)\n<b>Phủ định</b>Subject + was/were + not + V3 (past participle)\n <b>Câu hỏi</b>: Was/Were + Subject + V3 (past participle)?"},
+				{"name":"<b>Khẳng định</b>: Subject + will be + V3 (past participle)\n<b>Phủ định</b>: Subject + will not be + V3 (past participle)\n <b>Câu hỏi</b>: Will + Subject + be + V3 (past participle)?"}
+			],
+			"giaiThich":"Mệnh đề điều kiện dùng thì hiện tại đơn, còn mệnh đề chính dùng 'will' cộng với động từ nguyên mẫu để diễn tả hành động hoặc sự kiện có khả năng xảy ra trong tương lai nếu điều kiện được đáp ứng",
+			"tinhHuong": [
+				{
+					"name": "📌 <i>Bạn và bạn bè đang nói về một bài báo trên tờ báo</i>\n\n <b>You:</b> The article is written by a famous journalist.\n\n <b>Giải thich:</b> Trong tình huống này, chủ thể hành động (người viết bài báo) không quan trọng bằng chính hành động viết bài báo và bài báo đã được viết. Chúng ta quan tâm đến bài báo và thông tin về người viết, không phải là người viết bài là ai."
+				},
+				{
+					"name": "📌 <i>Bạn đang bàn về một dự án xây dựng với đồng nghiệp</i>\n\n <b>You:</b> This new building will be built by ABC company.\n\n <b>Giải thich:</b> Trong tình huống này, việc xây dựng tòa nhà là hành động quan trọng, và công ty nào sẽ thực hiện việc này là thông tin được nhấn mạnh. Chúng ta không cần biết ai là người thực hiện cụ thể mà chỉ cần biết công ty nào chịu trách nhiệm."
+				}
+			]
+		}
+		
+	]
+}
